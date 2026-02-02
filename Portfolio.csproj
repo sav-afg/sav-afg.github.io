@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <Content Include="index.html" />
+    <Content Include="publish\wwwroot\index.html" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,6 +21,10 @@
     <Folder Include="wwwroot\Images\Projects\Fitness-Saviour\" />
     <Folder Include="wwwroot\Images\Projects\Discord-Bot\" />
     <Folder Include="wwwroot\Images\Projects\Service-Booking-Platform\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include=".github\workflows\deploy.yml" />
   </ItemGroup>
 
 </Project>
