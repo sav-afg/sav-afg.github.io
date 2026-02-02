@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
     <base href="/" />
+    <link rel="preload" id="webassembly" />
     <link rel="stylesheet" href="css/app.css" />
+    <script type="importmap"></script>
     <!-- SPA redirect handling for GitHub Pages -->
     <script type="text/javascript">
         (function(l) {
@@ -34,9 +36,9 @@
     <div id="blazor-error-ui">
         An unhandled error has occurred.
         <a href="." class="reload">Reload</a>
-        <span class="dismiss">??</span>
+        <span class="dismiss">🗙</span>
     </div>
-    <script src="_framework/blazor.webassembly.js"></script>
+    <script src="_framework/blazor.webassembly#[.{fingerprint}].js"></script>
 </body>
 
 </html>
