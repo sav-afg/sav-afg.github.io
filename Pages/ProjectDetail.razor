@@ -1,0 +1,82 @@
+@page "/projects/{id:int}"
+@using Portfolio.Data
+
+<PageTitle>@projectTitle - Portfolio</PageTitle>
+
+@if (project == null)
+{
+    <section class="project-detail">
+        <p>Project not found.</p>
+        <a href="/projects" class="btn btn-primary">Back to Projects</a>
+    </section>
+}
+else
+{
+    <section class="project-detail">
+        <nav class="breadcrumb">
+            <a href="/projects">Projects</a> / @project.Title
+        </nav>
+
+        <h1>@project.Title</h1>
+
+        <div class="project-meta">
+            <strong>Technologies:</strong> @project.Technologies
+        </div>
+
+        <div class="project-description-full">
+            <h2>About This Project</h2>
+            <p>@project.Description</p>
+        </div>
+
+        <div class="project-features">
+            <h2>Key Features</h2>
+            <ul>
+                @if (!string.IsNullOrEmpty(project.Feature1))
+                {
+                    <li>@project.Feature1</li>
+                }
+                @if (!string.IsNullOrEmpty(project.Feature2))
+                {
+                    <li>@project.Feature2</li>
+                }
+                @if (!string.IsNullOrEmpty(project.Feature3))
+                {
+                    <li>@project.Feature3</li>
+                }
+                @if (!string.IsNullOrEmpty(project.Feature4))
+                {
+                    <li>@project.Feature4</li>
+                }
+            </ul>
+        </div>
+
+        <div class="project-actions">
+            @if (!string.IsNullOrEmpty(project.GitHubUrl))
+            {
+                <a href="@project.GitHubUrl" target="_blank" class="btn btn-primary">View on GitHub</a>
+            }
+            @if (!string.IsNullOrEmpty(project.LiveUrl))
+            {
+                <a href="@project.LiveUrl" target="_blank" class="btn btn-secondary">View Live Demo</a>
+            }
+            <a href="/projects" class="btn btn-tertiary">Back to Projects</a>
+        </div>
+    </section>
+}
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    private Project? project;
+    private string projectTitle = "Project";
+
+    protected override void OnInitialized()
+    {
+        project = ProjectData.GetProjectById(Id);
+        if (project != null)
+        {
+            projectTitle = project.Title;
+        }
+    }
+}

@@ -1,3 +1,13 @@
 ﻿@inherits LayoutComponentBase
 
-@Body
+<div class="page-container">
+    <NavMenu />
+    
+    <main class="main-content">
+        @Body
+    </main>
+    
+    <footer class="page-footer">
+        <p>&copy; @DateTime.Now.Year Portfolio. All rights reserved.</p>
+    </footer>
+</div>

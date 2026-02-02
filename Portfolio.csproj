@@ -12,4 +12,10 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="10.0.2" PrivateAssets="all" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\Projects\Fitness-Saviour\" />
+    <Folder Include="wwwroot\Images\Projects\Discord-Bot\" />
+    <Folder Include="wwwroot\Images\Projects\Service-Booking-Platform\" />
+  </ItemGroup>
+
 </Project>

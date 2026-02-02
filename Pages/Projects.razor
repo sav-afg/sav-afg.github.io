@@ -1,0 +1,28 @@
+@page "/projects"
+@using Portfolio.Data
+
+<PageTitle>Projects - Portfolio</PageTitle>
+
+<section class="projects-page">
+    <h1>My Projects</h1>
+    <p class="page-intro">
+        Selected projects demonstrating backend-focused .NET development,
+        system design, and real-world problem solving.
+    </p>
+
+    <div class="projects-grid">
+        @foreach (var project in projects)
+        {
+            <ProjectCard Project="@project" />
+        }
+    </div>
+</section>
+
+@code {
+    private List<Project> projects = new();
+
+    protected override void OnInitialized()
+    {
+        projects = ProjectData.GetProjects();
+    }
+}
