@@ -3,20 +3,24 @@
 
 <PageTitle>Projects - Portfolio</PageTitle>
 
-<section class="projects-page">
-    <h1>My Projects</h1>
-    <p class="page-intro">
-        Selected projects demonstrating backend-focused .NET development,
-        system design, and real-world problem solving.
-    </p>
+<div class="container my-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold">My Projects</h1>
+        <p class="lead text-muted">
+            Selected projects demonstrating backend-focused .NET development,
+            system design, and real-world problem solving.
+        </p>
+    </div>
 
-    <div class="projects-grid">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
         @foreach (var project in projects)
         {
-            <ProjectCard Project="@project" />
+            <div class="col">
+                <ProjectCard Project="@project" />
+            </div>
         }
     </div>
-</section>
+</div>
 
 @code {
     private List<Project> projects = new();

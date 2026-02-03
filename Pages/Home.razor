@@ -2,36 +2,52 @@
 
 <PageTitle>Home - Portfolio</PageTitle>
 
-<section class="hero">
-    <h1>Hi, I’m Savero</h1>
-    <p class="hero-subtitle">Aspiring .NET Software Developer</p>
-    <p class="hero-description">
-        I build structured, testable .NET applications with a focus on backend logic,
-        authentication, and real-world business rules.
-    </p>
-    <div class="hero-actions">
-        <a href="/projects" class="btn btn-primary">View Projects</a>
-        <a href="/contact" class="btn btn-secondary">Get in Touch</a>
-    </div>
-</section>
-
-<section class="home-highlights">
-    <h2>What I Focus On</h2>
-
-    <div class="highlights-grid">
-        <div class="highlight-item">
-            <h3>Backend Logic</h3>
-            <p>Designing APIs, enforcing business rules, and handling edge cases correctly.</p>
+<div class="container">
+    <!-- Hero Section -->
+    <section class="text-center py-5 my-5">
+        <h1 class="display-4 fw-bold mb-3">Hi, I'm Savero</h1>
+        <p class="fs-5 text-muted mb-3">.NET Software Developer</p>
+        <p class="lead text-secondary mb-4 mx-auto" style="max-width: 600px;">
+            I build structured, testable .NET applications with a focus on backend logic,
+            authentication, and real-world business rules.
+        </p>
+        <div class="d-flex gap-3 justify-content-center">
+            <a href="/projects" class="btn btn-primary btn-lg px-4">View Projects</a>
+            <a href="/contact" class="btn btn-outline-secondary btn-lg px-4">Get in Touch</a>
         </div>
+    </section>
 
-        <div class="highlight-item">
-            <h3>Clean Architecture</h3>
-            <p>Clear separation of concerns with testable, maintainable codebases.</p>
-        </div>
+    <!-- Highlights Section -->
+    <section class="py-5 mb-5">
+        <h2 class="text-center mb-5">What I Focus On</h2>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <h3 class="h5 mb-3">Backend Logic</h3>
+                        <p class="text-muted mb-0">Designing APIs, enforcing business rules, and handling edge cases correctly.</p>
+                    </div>
+                </div>
+            </div>
 
-        <div class="highlight-item">
-            <h3>Security & Correctness</h3>
-            <p>JWT authentication, claims-based authorization, and validation-first design.</p>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <h3 class="h5 mb-3">Clean Architecture</h3>
+                        <p class="text-muted mb-0">Clear separation of concerns with testable, maintainable codebases.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <h3 class="h5 mb-3">Security & Correctness</h3>
+                        <p class="text-muted mb-0">JWT authentication, claims-based authorization, and validation-first design.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+</div>
