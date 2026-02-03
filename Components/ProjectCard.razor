@@ -3,7 +3,7 @@
 <div class="card h-100 shadow-sm">
     @if (!string.IsNullOrEmpty(Project.ImagePath1) || !string.IsNullOrEmpty(Project.ImagePath2))
     {
-        <div id="carousel-@Project.Id" class="carousel slide" data-bs-ride="carousel">
+        <div id="carousel-@Project.Id" class="carousel slide" >
             <div class="carousel-inner">
                 @if (!string.IsNullOrEmpty(Project.ImagePath1))
                 {
