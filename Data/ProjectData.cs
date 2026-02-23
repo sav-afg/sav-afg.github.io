@@ -13,16 +13,22 @@ public static class ProjectData
             new() {
                 Id = 1,
                 Title = "Service Booking Platform",
-                Description = "A secure dual-token authentication system using JWT access tokens and rotating refresh tokens that allows users to book services.",
-                Technologies = ".NET 10, ASP.NET Core, SQL Server, C#",
-                GitHubUrl = "https://github.com/sav-afg/ServiceBookingPlatform",
+                Description = "A full-stack service booking and management platform built as a multi-project .NET 10 solution.",
+                Technologies = ".NET 10, ASP.NET Core, Blazor WebAssembly, SQL Server, C#",
+                GitHubUrl = "https://github.com/sav-afg/ServiceBookingandManagementPlatform",
                 LiveUrl = "",
                 Feature1 = "Implemented claims-based authorisation to enforce user ownership and role-specific access (Customer, Staff, Admin).",
-                Feature2 = "Developed 80 unit tests covering authentication, booking rules, refresh token rotation, and authorization logic",
+                Feature2 = "Developed 92 unit and integration tests covering authentication, booking rules, refresh token rotation, and API endpoints",
                 Feature3 = "Built booking conflict detection logic to prevent overlapping reservations using time-range validation.",
                 Feature4 = "Structured the API using Controller–Service–DTO separation, enforcing clean architecture and testability.",
-                ImagePath1 = "/Images/Projects/Service-Booking-Platform/BookingConflict.png",
-                ImagePath2 = "/Images/Projects/Service-Booking-Platform/LogIn.png"
+                ImagePath4 = "/Images/Projects/Service-Booking-Platform/AdminDashboard.png",
+                ImagePath2 = "/Images/Projects/Service-Booking-Platform/BookingPage.png",
+                ImagePath3 = "/Images/Projects/Service-Booking-Platform/CreateBooking.png",
+                ImagePath1 = "/Images/Projects/Service-Booking-Platform/HomePage.png",
+                ImagePath5 = "/Images/Projects/Service-Booking-Platform/LogInForm.png",
+                ImagePath6 = "/Images/Projects/Service-Booking-Platform/SeqLogging.png",
+                ImagePath7 = "/Images/Projects/Service-Booking-Platform/BookingConflict.png",
+                ImagePath8 = "/Images/Projects/Service-Booking-Platform/LogIn.png"
             },
             new() {
                 Id = 2,
@@ -35,9 +41,16 @@ public static class ProjectData
                 Feature2 = "Designed and normalised the relational database schema and integrated it using EF Core for persistent progress tracking.",
                 Feature3 = "Built a component-based Blazor UI with dynamic state updates and interactive data visualisations to display user progress over time.",
                 Feature4 = "Owned the project end-to-end, including requirements analysis, system design, implementation, testing, and full technical documentation.",
-                ImagePath1 = "/Images/Projects/Fitness-Saviour/WorkoutSplitResults.png",
+                ImagePath4 = "/Images/Projects/Fitness-Saviour/WorkoutSplitResults.png",
                 ImagePath2 = "/Images/Projects/Fitness-Saviour/Graph.png",
-                ImagePath3 = "/Images/Projects/Fitness-Saviour/WorkoutSplitQuestionnaire.png"
+                ImagePath3 = "/Images/Projects/Fitness-Saviour/WorkoutSplitQuestionnaire.png",
+                ImagePath1 = "/Images/Projects/Fitness-Saviour/HomePage.png",
+                ImagePath5 = "/Images/Projects/Fitness-Saviour/ExerciseLoggingSearchBar.png",
+                ImagePath6 = "/Images/Projects/Fitness-Saviour/GraphsPage.png",
+                ImagePath7 = "/Images/Projects/Fitness-Saviour/MacroComposition.png",
+                ImagePath8 = "/Images/Projects/Fitness-Saviour/SummaryStatistics.png",
+                ImagePath9 = "/Images/Projects/Fitness-Saviour/UIPersonalisation.png"
+
             },
             new() {
                 Id = 3,
