@@ -1,0 +1,158 @@
+@page "/projects/walkthrough/{id:int}"
+@using Portfolio.Data
+@using Portfolio.Models
+
+<PageTitle>@projectTitle Walkthrough - Portfolio</PageTitle>
+
+@if (project == null)
+{
+    <div class="container my-5">
+        <div class="alert alert-warning text-center" role="alert">
+            <h4 class="alert-heading">Project not found</h4>
+            <p class="mb-3">The project you're looking for doesn't exist.</p>
+            <a href="/projects" class="btn btn-primary">Back to Projects</a>
+        </div>
+    </div>
+}
+else if (!project.HasWalkthrough || walkthroughImages.Count == 0)
+{
+    <div class="container my-5">
+        <div class="alert alert-info text-center" role="alert">
+            <h4 class="alert-heading">No Walkthrough Available</h4>
+            <p class="mb-3">This project doesn't have a walkthrough yet.</p>
+            <a href="/projects/@project.Id" class="btn btn-primary">View Project Details</a>
+        </div>
+    </div>
+}
+else
+{
+    <div class="container my-3">
+        <nav aria-label="breadcrumb" class="mb-2">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/projects">Projects</a></li>
+                <li class="breadcrumb-item"><a href="/projects/@project.Id">@project.Title</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Walkthrough</li>
+            </ol>
+        </nav>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-3">
+
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h2 class="h4 fw-bold mb-0">@currentImage.Title</h2>
+                            <span class="badge bg-primary px-3 py-2">
+                                @(currentIndex + 1) / @walkthroughImages.Count
+                            </span>
+                        </div>
+
+                        <div class="d-flex align-items-center justify-content-center mb-2"
+                             style="height: 420px; background-color: #f8f9fa; border: 2px solid #dee2e6; border-radius: 0.375rem;">
+                            <img src="@currentImage.Path"
+                                 alt="@currentImage.Alt"
+                                 class="img-fluid rounded"
+                                 style="max-height: 416px; max-width: 100%; object-fit: contain;">
+                        </div>
+
+                        <p class="mb-3 text-center">@currentImage.Alt</p>
+
+                        <div class="d-flex gap-2 justify-content-between align-items-center">
+                            <button class="btn btn-primary px-4"
+                                    @onclick="PreviousImage"
+                                    disabled="@(currentIndex == 0)">
+                                <i class="bi bi-arrow-left"></i> Previous
+                            </button>
+                            <div class="d-flex gap-2">
+                                <a href="/projects/@project.Id" class="btn btn-outline-primary px-3">Details</a>
+                                <a href="/projects" class="btn btn-outline-secondary px-3">Projects</a>
+                            </div>
+                            <button class="btn btn-primary px-4"
+                                    @onclick="NextImage"
+                                    disabled="@(currentIndex == walkthroughImages.Count - 1)">
+                                Next <i class="bi bi-arrow-right"></i>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    private Project? project;
+    private string projectTitle = "Project";
+    private List<WalkthroughImage> walkthroughImages = new();
+    private int currentIndex = 0;
+    private WalkthroughImage currentImage => walkthroughImages[currentIndex];
+
+    protected override void OnInitialized()
+    {
+        project = ProjectData.GetProjectById(Id);
+        
+        if (project != null)
+        {
+            projectTitle = project.Title;
+            LoadWalkthroughImages();
+        }
+    }
+
+    private void LoadWalkthroughImages()
+    {
+        if (project == null) return;
+
+        walkthroughImages = new List<WalkthroughImage>();
+
+        // Load all images with their titles and alt text
+        AddImageIfExists(project.ImagePath1, project.ImagePath1Title, project.ImagePath1Alt);
+        AddImageIfExists(project.ImagePath2, project.ImagePath2Title, project.ImagePath2Alt);
+        AddImageIfExists(project.ImagePath3, project.ImagePath3Title, project.ImagePath3Alt);
+        AddImageIfExists(project.ImagePath4, project.ImagePath4Title, project.ImagePath4Alt);
+        AddImageIfExists(project.ImagePath5, project.ImagePath5Title, project.ImagePath5Alt);
+        AddImageIfExists(project.ImagePath6, project.ImagePath6Title, project.ImagePath6Alt);
+        AddImageIfExists(project.ImagePath7, project.ImagePath7Title, project.ImagePath7Alt);
+        AddImageIfExists(project.ImagePath8, project.ImagePath8Title, project.ImagePath8Alt);
+        AddImageIfExists(project.ImagePath9, project.ImagePath9Title, project.ImagePath9Alt);
+    }
+
+    private void AddImageIfExists(string? path, string? title, string? alt)
+    {
+        if (!string.IsNullOrEmpty(path))
+        {
+            walkthroughImages.Add(new WalkthroughImage
+            {
+                Path = path,
+                Title = title ?? "Screenshot",
+                Alt = alt ?? "Project screenshot"
+            });
+        }
+    }
+
+    private void NextImage()
+    {
+        if (currentIndex < walkthroughImages.Count - 1)
+        {
+            currentIndex++;
+        }
+    }
+
+    private void PreviousImage()
+    {
+        if (currentIndex > 0)
+        {
+            currentIndex--;
+        }
+    }
+
+    private class WalkthroughImage
+    {
+        public string Path { get; set; } = string.Empty;
+        public string Title { get; set; } = string.Empty;
+        public string Alt { get; set; } = string.Empty;
+    }
+}
